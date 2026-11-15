@@ -1,0 +1,102 @@
+/* ===== Paleta: bege e marrom ===== */
+:root {
+  --bege-claro: #F5EFE6;
+  --creme: #FFFDF8;
+  --marrom: #795548;
+  --marrom-escuro: #4B3621;
+  --bege-secundario: #E8DCCB;
+  --branco: #FFFFFF;
+}
+
+/* ===== Base (mesma estrutura do site de referência) ===== */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--creme);
+  color: var(--marrom-escuro);
+}
+
+/* ===== Cabeçalho ===== */
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 210px;
+  padding: 30px 0;
+  text-align: center;
+  background: var(--bege-secundario);
+  color: var(--marrom-escuro);
+}
+header h1 { margin: 0 0 4px; }
+header .subtitulo { margin: 0 0 14px; }
+header form div { margin-bottom: 2px; }
+header .links { margin: 4px 0 0; }
+header a { color: var(--marrom); }
+
+/* Imagem decorativa à direita */
+header .banner {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+}
+
+/* Campos e botões do cabeçalho */
+header input,
+header select { padding: 2px 4px; border: 1px solid var(--marrom); background: var(--branco); color: var(--marrom-escuro); }
+button {
+  padding: 3px 8px;
+  border: 1px solid var(--marrom);
+  border-radius: 3px;
+  background: var(--marrom);
+  color: var(--branco);
+  font-family: inherit;
+  font-size: 13.33px;
+  cursor: pointer;
+}
+
+/* ===== Grade de produtos: 5 colunas ===== */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  padding: 30px;
+}
+
+/* ===== Card de produto ===== */
+.card {
+  align-self: start;
+  padding: 15px;
+  border: 1px solid var(--bege-secundario);
+  background: var(--branco);
+}
+.card img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.card h3 { margin: 30px 0 25px; font-size: 1.4em; }
+.card p { margin: 0 0 20px; line-height: 1.2; }
+
+/* ===== Rodapé ===== */
+footer {
+  padding: 30px 20px;
+  text-align: center;
+  background: var(--marrom-escuro);
+  color: var(--bege-claro);
+}
+footer p { margin: 4px 0; }
+footer .loja { font-size: 1.2em; font-weight: bold; }
+
+/* ===== Responsivo ===== */
+@media (max-width: 1024px) {        /* Tablet: 3 colunas */
+  .produtos { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {         /* Tablet pequeno: 2 colunas */
+  .produtos { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px; }
+  header .banner { position: static; width: 120px; height: 120px; margin-top: 15px; }
+  header form div { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+}
+@media (max-width: 480px) {         /* Celular: 1 coluna */
+  .produtos { grid-template-columns: 1fr; }
+}
